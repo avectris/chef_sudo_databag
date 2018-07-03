@@ -1,4 +1,4 @@
-![build](https://git.zmssrv.com/example_group/chef_sudo_databag/badges/master/build.svg)
+![build](https://git.zmssrv.com/avectris/chef/chef_sudo_databag/badges/master/build.svg)
 
 # sudo_databag Cookbook
 
@@ -65,7 +65,7 @@ Explain what these tests test and why
 
 * **Robert Ressl** - *Initial work* - [Robert Ressl](https://github.com/safematix)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://git.zmssrv.com/avectris/chef/chef_sudo_databag/graphs/master) who participated in this project.
 
 ## License
 
