@@ -1,6 +1,6 @@
 {
   "id": "basic",
-  "include_sudoers_d": false,
+  "include_sudoers_d": true,
   "defaults": {
     "env_reset": null,
     "secure_path": "/sbin:/bin:/usr/sbin:/usr/bin",
