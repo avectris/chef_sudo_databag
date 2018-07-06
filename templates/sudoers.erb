@@ -1,3 +1,5 @@
 <% @defaults.each do |d| -%>
 Defaults <%= d.first %> <%= '= ' + ['"', d.last, '"'].join if d.last != nil %>
 <% end -%>
+
+<%= "#includedir /etc/sudoers.d" if @include_sudoers_d %>
