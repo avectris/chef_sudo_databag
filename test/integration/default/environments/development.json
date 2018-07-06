@@ -1,0 +1,14 @@
+{
+  "name": "development",
+  "description": "Development server aka sandbox. This is where unit testing is performed by the developer.",
+  "cookbook_versions": {
+
+  },
+  "json_class": "Chef::Environment",
+  "chef_type": "environment",
+  "default_attributes": {
+  },
+  "override_attributes": {
+
+  }
+}
