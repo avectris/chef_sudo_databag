@@ -58,10 +58,22 @@
       "operator": "all",
       "tag": "nopasswd",
       "command": "all"
+    },
+    "ressl": {
+      "host": "all",
+      "operator": "all",
+      "tag": "nopasswd",
+      "command": "all"
     }
   },
   "users": {
     "wheel": {
+      "host": "all",
+      "operator": "all",
+      "tag": "nopasswd",
+      "command": "all"
+    },
+    "robert_ressl": {
       "host": "all",
       "operator": "all",
       "tag": "nopasswd",
