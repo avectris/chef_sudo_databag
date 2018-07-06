@@ -16,3 +16,20 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+databag = node['sudo_databag']['databag']['name'] || 'sudo'
+basic = data_bag_item(databag, 'basic')
+
+template '/etc/sudoers' do
+  owner 'root'
+  group 'root'
+  source 'sudoers.erb'
+  mode '0440'
+  variables(
+    include_sudoers_d: basic['include_sudoers_d'],
+    defaults: basic['defaults'],
+    aliases: basic['defaults'],
+    groups: basic['groups'],
+    users: basic['users']
+  )
+end
