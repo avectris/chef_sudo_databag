@@ -17,6 +17,10 @@ platforms:
 
 suites:
   - name: default
+    data_bags_path:
+      - test/integration/default/data_bags
+    environments_path:
+      - test/integration/default/environments
     run_list:
       - recipe[sudo_databag::default]
     verifier:
