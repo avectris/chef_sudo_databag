@@ -2,4 +2,11 @@
 Defaults <%= d.first %> <%= '= ' + ['"', d.last, '"'].join if d.last != nil %>
 <% end -%>
 
+<% @aliases.each do |k, v| %>
+  <% sudo_alias = [k.capitalize, "_Alias"].join %>
+  <% v.each do |n| %>
+<%= "#{sudo_alias} #{n.first.upcase} = " + [n.last].join(', ') %>
+  <% end %>
+<% end %>
+
 <%= "#includedir /etc/sudoers.d" if @include_sudoers_d %>
