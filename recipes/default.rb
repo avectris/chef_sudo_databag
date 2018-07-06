@@ -28,7 +28,7 @@ template '/etc/sudoers' do
   variables(
     include_sudoers_d: basic['include_sudoers_d'],
     defaults: basic['defaults'],
-    aliases: basic['defaults'],
+    aliases: basic['aliases'],
     groups: basic['groups'],
     users: basic['users']
   )
