@@ -56,14 +56,16 @@
     "wheel": {
       "host": "all",
       "operator": "all",
-      "tag": "all"
+      "tag": "nopasswd",
+      "command": "all"
     }
   },
   "users": {
     "wheel": {
       "host": "all",
       "operator": "all",
-      "tag": "all"
+      "tag": "nopasswd",
+      "command": "all"
     }
   }
 }
