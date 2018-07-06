@@ -9,4 +9,8 @@ Defaults <%= d.first %> <%= '= ' + ['"', d.last, '"'].join if d.last != nil %>
   <% end %>
 <% end %>
 
+<% @groups.each do |k, v| %>
+<%= ["%", k].join %> <%= v['host'].upcase %>=(<%= v['operator'].upcase %>) <%= v['tag'].upcase + ':' if ['tag'] %> <%= v['command'] == 'all' ? (v['command'].upcase) : (v['command']) %>
+<% end %>
+
 <%= "#includedir /etc/sudoers.d" if @include_sudoers_d %>
