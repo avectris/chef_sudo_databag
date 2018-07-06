@@ -1,0 +1,3 @@
+<% @defaults.each do |d| -%>
+Defaults <%= d.first %> <%= '= ' + ['"', d.last, '"'].join if d.last != nil %>
+<% end -%>
