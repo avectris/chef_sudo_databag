@@ -57,13 +57,17 @@
       "host": "all",
       "operator": "all",
       "tag": "nopasswd",
-      "command": "all"
+      "command": [
+        "all"
+      ]
     },
     "ressl": {
       "host": "all",
       "operator": "all",
       "tag": "nopasswd",
-      "command": "all"
+      "command": [
+        "all"
+      ]
     }
   },
   "users": {
@@ -71,13 +75,18 @@
       "host": "all",
       "operator": "all",
       "tag": "nopasswd",
-      "command": "all"
+      "command": [
+        "all"
+      ]
     },
     "robert_ressl": {
       "host": "all",
       "operator": "all",
       "tag": "nopasswd",
-      "command": "all"
+      "command": [
+        "/bin/ls",
+        "/bin/cat"
+      ]
     }
   }
 }
