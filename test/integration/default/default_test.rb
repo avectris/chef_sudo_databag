@@ -1,18 +1,32 @@
-# # encoding: utf-8
-
-# Inspec test for recipe sudo_databag::default
-
-# The Inspec reference, with examples and extensive documentation, can be
-# found at http://inspec.io/docs/reference/resources/
-
-unless os.windows?
-  # This is an example test, replace with your own test.
-  describe user('root'), :skip do
-    it { should exist }
-  end
+describe file('/etc/sudoers') do
+  it { should exist }
+  its('mode') { should cmp '0440' }
 end
 
-# This is an example test, replace it with your own test.
-describe port(80), :skip do
-  it { should_not be_listening }
+describe file('/etc/sudoers') do
+  its('content') { should match(/(Defaults env_reset)/) }
+  its('content') { should match(/(Defaults secure_path = "\/sbin:\/bin:\/usr\/sbin:\/usr\/bin")/) }
+  its('content') { should match(/(Defaults env_keep = "COLORS DISPLAY HOSTNAME HISTSIZE KDEDIR LS_COLORS MAIL PS1 PS2 QTDIR USERNAME LANG LC_ADDRESS LC_CTYPE LC_COLLATE LC_IDENTIFICATION LC_MEASUREMENT LC_MESSAGES LC_MONETARY LC_NAME LC_NUMERIC LC_PAPER LC_TELEPHONE LC_TIME LC_ALL LANGUAGE LINGUAS _XKB_CHARSET XAUTHORITY")/) }
+end
+
+describe file('/etc/sudoers') do
+  its('content') { should match(/(Cmnd_Alias SHUTDOWN = \/sbin\/poweroff, \/sbin\/reboot, \/sbin\/halt)/) }
+  its('content') { should match(/(User_Alias ADMINS = %admin, %whell)/) }
+  its('content') { should match(/(User_Alias USERS = robert, roland)/) }
+  its('content') { should match(/(Runas_Alias ROOT = #0)/) }
+  its('content') { should match(/(Runas_Alias ADMINS = %admin, root)/) }
+  its('content') { should match(/(Host_Alias SERVERS = 192.168.0.1, 192.168.0.2, server1)/) }
+  its('content') { should match(/(Host_Alias NETWORK = 192.168.0.0\/255.255.255.0)/) }
+  its('content') { should match(/(Host_Alias WORKSTATIONS = NETWORK, !SERVER)/) }
+end
+
+describe file('/etc/sudoers') do
+  its('content') { should match(/(robert_ressl ALL=\(ALL\) \/bin\/ls, \/bin\/cat)/) }
+  its('content') { should match(/(wheel ALL=\(ALL\) NOPASSWD: ALL)/) }
+  its('content') { should match(/(\%ressl ALL=\(ALL\) \/bin\/ls, \/bin\/cat)/) }
+  its('content') { should match(/(\%wheel ALL=\(ALL\) NOPASSWD: ALL)/) }
+end
+
+describe file('/etc/sudoers') do
+  its('content') { should match(/(#includedir \/etc\/sudoers.d)/) }
 end
