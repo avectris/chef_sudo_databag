@@ -28,5 +28,16 @@ describe file('/etc/sudoers') do
 end
 
 describe file('/etc/sudoers') do
+  its('content') { should match(%r{example_robert_ressl ALL=\(ALL\) \/bin\/ls, \/bin\/cat}) }
+  its('content') { should match(%r{example2_robert_ressl ALL=\(ALL\) \/bin\/ls, \/bin\/cat}) }
+  its('content') { should match(/example_wheel ALL=\(ALL\) NOPASSWD: ALL/) }
+  its('content') { should match(/example2_wheel ALL=\(ALL\) NOPASSWD: ALL/) }
+  its('content') { should match(%r{\%example_ressl ALL=\(ALL\) \/bin\/ls, \/bin\/cat}) }
+  its('content') { should match(%r{\%example2_ressl ALL=\(ALL\) \/bin\/ls, \/bin\/cat}) }
+  its('content') { should match(/\%example_wheel ALL=\(ALL\) NOPASSWD: ALL/) }
+  its('content') { should match(/\%example2_wheel ALL=\(ALL\) NOPASSWD: ALL/) }
+end
+
+describe file('/etc/sudoers') do
   its('content') { should match(%r{#includedir \/etc\/sudoers.d}) }
 end
