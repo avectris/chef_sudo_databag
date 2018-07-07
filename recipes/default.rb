@@ -17,8 +17,24 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+def hash_merge(*hashes)
+  hashes.inject :merge
+end
+
 databag = node['sudo_databag']['databag']['name'] || 'sudo'
+items = node['sudo_databag']['databag']['items']
 basic = data_bag_item(databag, 'basic')
+
+items.each do |i|
+  item = data_bag_item(databag, i)
+  instance_variable_set("@dbi_#{i}", item)
+  @mgitems = "basic['groups'].merge(@dbi_#{items.join(' @dbi_')})"
+  @mgitems = "hash_merge(basic['groups'], #{items.map { |s| s.sub(/$/, "['groups']") }.map { |s| s.sub(/\A(?!@dbi_)/, '@dbi_') }.join(', ')})"
+  @muitems = "hash_merge(basic['users'], #{items.map { |s| s.sub(/$/, "['users']") }.map { |s| s.sub(/\A(?!@dbi_)/, '@dbi_') }.join(', ')})"
+end
+
+mgroups = eval(@mgitems)
+musers = eval(@muitems)
 
 template '/etc/sudoers' do
   owner 'root'
@@ -29,7 +45,7 @@ template '/etc/sudoers' do
     include_sudoers_d: basic['include_sudoers_d'],
     defaults: basic['defaults'],
     aliases: basic['aliases'],
-    groups: basic['groups'],
-    users: basic['users']
+    groups: mgroups,
+    users: musers
   )
 end
