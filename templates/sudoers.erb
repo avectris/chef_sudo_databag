@@ -10,11 +10,11 @@ Defaults <%= d.first %> <%= '= ' + ['"', d.last, '"'].join if d.last != nil %>
 <% end %>
 
 <% @groups.each do |k, v| %>
-<%= ["%", k].join %> <%= v['host'].upcase %>=(<%= v['operator'].upcase %>) <%= v['tag'].upcase + ':' if ['tag'] %> <%= v['command'].include?('all') ? (v['command'].join.upcase) : (v['command'].join(', ')) %>
+<%= ["%", k].join %> <%= v['host'].upcase %>=(<%= v['operator'].upcase %>) <%= v['tag'].upcase + ': ' if v['tag'] %><%= v['command'].include?('all') ? (v['command'].join.upcase) : (v['command'].join(', ')) %>
 <% end %>
 
 <% @users.each do |k, v| %>
-<%= k %> <%= v['host'].upcase %>=(<%= v['operator'].upcase %>) <%= v['tag'].upcase + ':' if ['tag'] %> <%= v['command'].include?('all') ? (v['command'].join.upcase) : (v['command'].join(', ')) %>
+<%= k %> <%= v['host'].upcase %>=(<%= v['operator'].upcase %>) <%= v['tag'].upcase + ': ' if v['tag'] %><%= v['command'].include?('all') ? (v['command'].join.upcase) : (v['command'].join(', ')) %>
 <% end %>
 
 
