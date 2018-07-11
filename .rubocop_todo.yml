@@ -9,7 +9,7 @@
 # Offense count: 2
 Security/Eval:
   Exclude:
-    - 'recipes/default.rb'
+    - 'recipes/config.rb'
 
 # Offense count: 9
 # Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
