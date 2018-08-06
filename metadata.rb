@@ -11,5 +11,5 @@ chef_version '>= 12.14' if respond_to?(:chef_version)
   supports os
 end
 
-issues_url 'https://git.zmssrv.com/avectris/chef/chef_sudo_databag/issues'
-source_url 'https://git.zmssrv.com/avectris/chef/chef_sudo_databag'
+issues_url 'https://github.com/avectris/chef_sudo_databag/issues'
+source_url 'https://github.com/avectris/chef_sudo_databag'
