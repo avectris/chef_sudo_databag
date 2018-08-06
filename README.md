@@ -1,5 +1,3 @@
-![build](https://git.zmssrv.com/avectris/chef/chef_sudo_databag/badges/master/build.svg)
-
 # sudo_databag Cookbook
 
 One Paragraph of project description goes here
