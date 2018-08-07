@@ -2,15 +2,11 @@
 
 # sudo_databag Cookbook
 
-One Paragraph of project description goes here
+Configure the sudo program.
 
 ## Requirements
 
 ### Cookbooks
-
-The following cookbooks are direct dependencies because they're used for common "default" functionality.
-
-- `example` description
 
 ### Platforms
 
@@ -18,15 +14,12 @@ The following platforms are supported and tested with Test Kitchen:
 
 - Ubuntu 14.04+
 - CentOS 6+
-- Debian 7+
-- openSUSE
-- FreeBSD
 
 Other Debian and RHEL family distributions are assumed to work.
 
 ### Chef
 
-- Chef 13.8+
+- Chef 14.3+
 
 ## Attributes
 
@@ -36,36 +29,169 @@ Node attributes for this cookbook are logically separated into different files. 
 
 These attributes are used in the `project::option` recipe.
 
-- `node['project']['option']` - description
+- `node['sudo_databag']['databag']['name']` - Data Bag name
+- `node['sudo_databag']['databag']['items']` - Data Bag item names
 
-## Resources
+## Data Bags
 
-### resource_name
+### Item Basic
 
-Explain what these tests test and why
+There is a minimum one data bag item. The name of this data bag item must be basic. In this item, you define the least common denominator.
 
-### Actions
+#### example of basic
 
-- `enable` - Enable ...
-- `disable` - Disable ...
+```
+{
+  "id": "basic",
+  "include_sudoers_d": true,
+  "defaults": {
+    "env_reset": null,
+    "secure_path": "/sbin:/bin:/usr/sbin:/usr/bin",
+    "env_keep": "COLORS DISPLAY HOSTNAME HISTSIZE KDEDIR LS_COLORS MAIL PS1 PS2 QTDIR USERNAME LANG LC_ADDRESS LC_CTYPE LC_COLLATE LC_IDENTIFICATION LC_MEASUREMENT LC_MESSAGES LC_MONETARY LC_NAME LC_NUMERIC LC_PAPER LC_TELEPHONE LC_TIME LC_ALL LANGUAGE LINGUAS _XKB_CHARSET XAUTHORITY"
+  },
+  "aliases": {
+    "cmnd": {
+      "shutdown": [
+        "/sbin/poweroff",
+        "/sbin/reboot",
+        "/sbin/halt"
+      ],
+      "printing": [
+        "/usr/sbin/lpc",
+        "/usr/sbin/lprm"
+      ]
+    },
+    "user": {
+      "admins": [
+        "%admin",
+        "%whell"
+      ],
+      "users": [
+        "robert",
+        "roland"
+      ]
+    },
+    "runas": {
+      "root": [
+        "#0"
+      ],
+      "admins": [
+        "%admin",
+        "root"
+      ]
+    },
+    "host": {
+      "servers": [
+        "192.168.0.1",
+        "192.168.0.2",
+        "server1"
+      ],
+      "network": [
+        "192.168.0.0/255.255.255.0"
+      ],
+      "workstations": [
+        "NETWORK",
+        "!SERVER"
+      ]
+    }
+  },
+  "groups": {
+    "wheel": {
+      "host": "all",
+      "operator": "all",
+      "tag": "nopasswd",
+      "command": [
+        "all"
+      ]
+    },
+    "ressl": {
+      "host": "all",
+      "operator": "all",
+      "tag": null,
+      "command": [
+        "/bin/ls",
+        "/bin/cat"
+      ]
+    }
+  },
+  "users": {
+    "wheel": {
+      "host": "all",
+      "operator": "all",
+      "tag": "nopasswd",
+      "command": [
+        "all"
+      ]
+    },
+    "robert_ressl": {
+      "host": "all",
+      "operator": "all",
+      "tag": null,
+      "command": [
+        "/bin/ls",
+        "/bin/cat"
+      ]
+    }
+  }
+}
+```
 
-### Properties:
+### extra item
 
-- `example` - description
+You can define specific items for a group of nodes or only one.
 
-### Package installation
+#### example extra item
 
-Explain what these tests test and why
+```
+{
+  "id": "example",
+  "groups": {
+    "example_wheel": {
+      "host": "all",
+      "operator": "all",
+      "tag": "nopasswd",
+      "command": [
+        "all"
+      ]
+    },
+    "example_ressl": {
+      "host": "all",
+      "operator": "all",
+      "tag": null,
+      "command": [
+        "/bin/ls",
+        "/bin/cat"
+      ]
+    }
+  },
+  "users": {
+    "example_wheel": {
+      "host": "all",
+      "operator": "all",
+      "tag": "nopasswd",
+      "command": [
+        "all"
+      ]
+    },
+    "example_robert_ressl": {
+      "host": "all",
+      "operator": "all",
+      "tag": null,
+      "command": [
+        "/bin/ls",
+        "/bin/cat"
+      ]
+    }
+  }
+}
+```
 
-#### Specifying Modules to compile
-
-Explain what these tests test and why
 
 ## Authors
 
 * **Robert Ressl** - *Initial work* - [Robert Ressl](https://github.com/safematix)
 
-See also the list of [contributors](https://git.zmssrv.com/avectris/chef/chef_sudo_databag/graphs/master) who participated in this project.
+See also the list of [contributors](https://git.avectris.ch/avectris/chef/chef_sudo_databag/graphs/master) who participated in this project.
 
 ## License
 
@@ -73,11 +199,5 @@ This project is licensed under the GNU Affero General Public License v3.0 Licens
 
 ## Acknowledgments
 
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
-
 ## Thanks to...
 
-* People who helped you.
-* Persons you have taken code from
