@@ -42,8 +42,8 @@ template '/etc/sudoers' do
   mode '0440'
   variables(
     include_sudoers_d: basic['include_sudoers_d'],
-    defaults: basic['defaults'],
-    aliases: basic['aliases'],
+    defaults: basic[node.environment]['defaults'] || basic['defaults'],
+    aliases: Chef::Mixin::DeepMerge.merge(basic['aliases'], basic[node.chef_environment]['aliases']),
     groups: mgroups,
     users: musers
   )
