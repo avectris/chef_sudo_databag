@@ -1,14 +1,18 @@
 {
   "name": "development",
   "description": "Development server aka sandbox. This is where unit testing is performed by the developer.",
-  "cookbook_versions": {
-
-  },
+  "cookbook_versions": {},
   "json_class": "Chef::Environment",
   "chef_type": "environment",
   "default_attributes": {
+    "sudo_databag": {
+      "databag": {
+        "items": [
+          "example",
+          "example2"
+        ]
+      }
+    }
   },
-  "override_attributes": {
-
-  }
+  "override_attributes": {}
 }
