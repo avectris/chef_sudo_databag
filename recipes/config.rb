@@ -28,7 +28,6 @@ basic = data_bag_item(databag, 'basic')
 items.each do |i|
   item = data_bag_item(databag, i)
   instance_variable_set("@dbi_#{i}", item)
-  @mgitems = "basic['groups'].merge(@dbi_#{items.join(' @dbi_')})"
   @mgitems = "hash_merge(basic['groups'], #{items.map { |s| s.sub(/$/, "['groups']") }.map { |s| s.sub(/\A(?!@dbi_)/, '@dbi_') }.join(', ')})"
   @muitems = "hash_merge(basic['users'], #{items.map { |s| s.sub(/$/, "['users']") }.map { |s| s.sub(/\A(?!@dbi_)/, '@dbi_') }.join(', ')})"
 end
