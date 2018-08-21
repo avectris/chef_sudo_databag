@@ -1,0 +1,49 @@
+{
+  "id": "example2",
+  "groups": {
+    "example2_wheel": {
+      "host": "all",
+      "operator": "all",
+      "tag": "nopasswd",
+      "command": [
+        "all"
+      ]
+    },
+    "example2_ressl": {
+      "host": "all",
+      "operator": "all",
+      "tag": null,
+      "command": [
+        "/bin/ls",
+        "/bin/cat"
+      ]
+    }
+  },
+  "users": {
+    "example2_wheel": {
+      "host": "all",
+      "operator": "all",
+      "tag": "nopasswd",
+      "command": [
+        "all"
+      ]
+    },
+    "example2_robert_ressl": {
+      "host": "all",
+      "operator": "all",
+      "tag": null,
+      "command": [
+        "/bin/ls",
+        "/bin/cat"
+      ]
+    }
+  },
+  "production": {},
+  "staging": {},
+  "testing": {},
+  "integration": {},
+  "development": {
+  
+  
+  }
+}
