@@ -1,7 +1,7 @@
 {
-  "id": "example2",
+  "id": "example3",
   "groups": {
-    "example2_wheel": {
+    "example3_wheel": {
       "host": "all",
       "operator": "all",
       "tag": "nopasswd",
@@ -9,7 +9,7 @@
         "all"
       ]
     },
-    "example2_ressl": {
+    "example3_ressl": {
       "host": "all",
       "operator": "all",
       "tag": null,
@@ -20,7 +20,7 @@
     }
   },
   "users": {
-    "example2_wheel": {
+    "example3_wheel": {
       "host": "all",
       "operator": "all",
       "tag": "nopasswd",
@@ -28,7 +28,7 @@
         "all"
       ]
     },
-    "example2_robert_ressl": {
+    "example3_robert_ressl": {
       "host": "all",
       "operator": "all",
       "tag": null,
@@ -43,7 +43,43 @@
   "testing": {},
   "integration": {},
   "development": {
-  
-  
+    "groups": {
+      "example3_development_wheel": {
+        "host": "all",
+        "operator": "all",
+        "tag": "nopasswd",
+        "command": [
+          "all"
+        ]
+      },
+      "example3_development_ressl": {
+        "host": "all",
+        "operator": "all",
+        "tag": null,
+        "command": [
+          "/bin/ls",
+          "/bin/cat"
+        ]
+      }
+    },
+    "users": {
+      "example3_development_wheel": {
+        "host": "all",
+        "operator": "all",
+        "tag": "nopasswd",
+        "command": [
+          "all"
+        ]
+      },
+      "example3_development_robert_ressl": {
+        "host": "all",
+        "operator": "all",
+        "tag": null,
+        "command": [
+          "/bin/ls",
+          "/bin/cat"
+        ]
+      }
+    }
   }
 }
