@@ -132,6 +132,101 @@ There is a minimum one data bag item. The name of this data bag item must be bas
         "/bin/cat"
       ]
     }
+  },
+  "production": {},
+  "staging": {},
+  "testing": {},
+  "integration": {},
+  "development": {
+    "defaults": {
+      "env_reset": null,
+      "secure_path": "/sbin:/bin:/usr/sbin:/usr/bin",
+      "env_keep": "COLORS DISPLAY HOSTNAME HISTSIZE KDEDIR LS_COLORS MAIL PS1 PS2 QTDIR USERNAME LANG LC_ADDRESS LC_CTYPE LC_COLLATE LC_IDENTIFICATION LC_MEASUREMENT LC_MESSAGES LC_MONETARY LC_NAME LC_NUMERIC LC_PAPER LC_TELEPHONE LC_TIME LC_ALL LANGUAGE LINGUAS _XKB_CHARSET XAUTHORITY"
+    },
+    "aliases": {
+      "cmnd": {
+        "shutdown_development": [
+          "/sbin/poweroff",
+          "/sbin/reboot",
+          "/sbin/halt"
+        ],
+        "printing_development": [
+          "/usr/sbin/lpc",
+          "/usr/sbin/lprm"
+        ]
+      },
+      "user": {
+        "admins_development": [
+          "%admin",
+          "%whell"
+        ],
+        "users_development": [
+          "robert",
+          "roland"
+        ]
+      },
+      "runas": {
+        "root_development": [
+          "#0"
+        ],
+        "admins_development": [
+          "%admin",
+          "root"
+        ]
+      },
+      "host": {
+        "servers_development": [
+          "192.168.0.1",
+          "192.168.0.2",
+          "server1"
+        ],
+        "network_development": [
+          "192.168.0.0/255.255.255.0"
+        ],
+        "workstations_development": [
+          "NETWORK",
+          "!SERVER"
+        ]
+      }
+    },
+    "groups": {
+      "wheel_development": {
+        "host": "all",
+        "operator": "all",
+        "tag": "nopasswd",
+        "command": [
+          "all"
+        ]
+      },
+      "ressl_development": {
+        "host": "all",
+        "operator": "all",
+        "tag": null,
+        "command": [
+          "/bin/ls",
+          "/bin/cat"
+        ]
+      }
+    },
+    "users": {
+      "wheel_development": {
+        "host": "all",
+        "operator": "all",
+        "tag": "nopasswd",
+        "command": [
+          "all"
+        ]
+      },
+      "robert_ressl_development": {
+        "host": "all",
+        "operator": "all",
+        "tag": null,
+        "command": [
+          "/bin/ls",
+          "/bin/cat"
+        ]
+      }
+    }
   }
 }
 ```
@@ -141,6 +236,8 @@ There is a minimum one data bag item. The name of this data bag item must be bas
 You can define specific items for a group of nodes or only one.
 
 #### example extra item
+
+##### without environments
 
 ```
 {
@@ -186,6 +283,57 @@ You can define specific items for a group of nodes or only one.
 }
 ```
 
+##### with environments
+
+```
+{
+  "id": "example3",
+  "production": {},
+  "staging": {},
+  "testing": {},
+  "integration": {},
+  "development": {
+    "groups": {
+      "example3_development_wheel": {
+        "host": "all",
+        "operator": "all",
+        "tag": "nopasswd",
+        "command": [
+          "all"
+        ]
+      },
+      "example3_development_ressl": {
+        "host": "all",
+        "operator": "all",
+        "tag": null,
+        "command": [
+          "/bin/ls",
+          "/bin/cat"
+        ]
+      }
+    },
+    "users": {
+      "example3_development_wheel": {
+        "host": "all",
+        "operator": "all",
+        "tag": "nopasswd",
+        "command": [
+          "all"
+        ]
+      },
+      "example3_development_robert_ressl": {
+        "host": "all",
+        "operator": "all",
+        "tag": null,
+        "command": [
+          "/bin/ls",
+          "/bin/cat"
+        ]
+      }
+    }
+  }
+}
+```
 
 ## Authors
 
