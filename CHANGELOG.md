@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of the Chef sudo_databag Cookbook.
 
+## v1.0.0
+
+- first stable release
+- add environment support
+
 ## v0.2.0
 
 - first release
