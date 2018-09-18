@@ -29,6 +29,10 @@ def nil.[](*)
   {}
 end
 
+def nil.each
+  ''
+end
+
 databag = node['sudo_databag']['databag']['name'] || 'sudo'
 items = node['sudo_databag']['databag']['items']
 basic = data_bag_item(databag, 'basic')
@@ -40,10 +44,12 @@ items.each do |i|
   @mgitems_env = "hash_merge(basic[node.chef_environment]['groups'], #{items.map { |s| s.sub(/$/, "[node.chef_environment]['groups']") }.map { |s| s.sub(/\A(?!@dbi_)/, '@dbi_') }.join(', ')})"
   @muitems = "hash_merge(basic['users'], #{items.map { |s| s.sub(/$/, "['users']") }.map { |s| s.sub(/\A(?!@dbi_)/, '@dbi_') }.join(', ')})"
   @muitems_env = "hash_merge(basic[node.chef_environment]['users'], #{items.map { |s| s.sub(/$/, "[node.chef_environment]['users']") }.map { |s| s.sub(/\A(?!@dbi_)/, '@dbi_') }.join(', ')})"
-end
+end unless items.empty?
 
+unless items.empty?
 mgroups = Chef::Mixin::DeepMerge.merge(eval(@mgitems), eval(@mgitems_env))
 musers = Chef::Mixin::DeepMerge.merge(eval(@muitems), eval(@muitems_env))
+end
 
 template '/etc/sudoers' do
   owner 'root'
