@@ -47,8 +47,8 @@ items.each do |i|
 end unless items.empty?
 
 unless items.empty?
-mgroups = Chef::Mixin::DeepMerge.merge(eval(@mgitems), eval(@mgitems_env))
-musers = Chef::Mixin::DeepMerge.merge(eval(@muitems), eval(@muitems_env))
+  mgroups = Chef::Mixin::DeepMerge.merge(eval(@mgitems), eval(@mgitems_env))
+  musers = Chef::Mixin::DeepMerge.merge(eval(@muitems), eval(@muitems_env))
 end
 
 template '/etc/sudoers' do
