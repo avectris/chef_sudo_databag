@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the Chef sudo_databag Cookbook.
 
+## v1.1.0 (26.09.2018)
+
+- add aix support
+
 ## v1.0.1 (18.09.2018)
 
 - fix problem if item is not defined
