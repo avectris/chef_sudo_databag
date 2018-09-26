@@ -37,6 +37,9 @@ databag = node['sudo_databag']['databag']['name'] || 'sudo'
 items = node['sudo_databag']['databag']['items']
 basic = data_bag_item(databag, 'basic')
 
+user = 'root'
+group = node['platform_family'] == 'aix' ? 'system' : 'root'
+
 items.each do |i|
   item = data_bag_item(databag, i)
   instance_variable_set("@dbi_#{i}", item)
@@ -52,8 +55,8 @@ unless items.empty?
 end
 
 template '/etc/sudoers' do
-  owner 'root'
-  group 'root'
+  owner user
+  group group
   source 'sudoers.erb'
   mode '0440'
   variables(
