@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the Chef sudo_databag Cookbook.
 
+## v1.1.2 (09.10.2018)
+
+- remove include directory if not using it
+
 ## v1.1.1 (26.09.2018)
 
 - fix upcase operator
