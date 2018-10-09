@@ -7,16 +7,16 @@
   "development": {
     "groups": {
       "example3_development_wheel": {
-        "host": "all",
-        "operator": "all",
+        "host": "ALL",
+        "operator": "ALL",
         "tag": "nopasswd",
         "command": [
-          "all"
+          "ALL"
         ]
       },
       "example3_development_ressl": {
-        "host": "all",
-        "operator": "all",
+        "host": "ALL",
+        "operator": "ALL",
         "tag": null,
         "command": [
           "/bin/ls",
@@ -26,16 +26,16 @@
     },
     "users": {
       "example3_development_wheel": {
-        "host": "all",
-        "operator": "all",
+        "host": "ALL",
+        "operator": "ALL",
         "tag": "nopasswd",
         "command": [
-          "all"
+          "ALL"
         ]
       },
       "example3_development_robert_ressl": {
-        "host": "all",
-        "operator": "all",
+        "host": "ALL",
+        "operator": "ALL",
         "tag": null,
         "command": [
           "/bin/ls",

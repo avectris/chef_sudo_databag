@@ -54,16 +54,16 @@
   },
   "groups": {
     "wheel": {
-      "host": "all",
-      "operator": "all",
+      "host": "ALL",
+      "operator": "ALL",
       "tag": "nopasswd",
       "command": [
-        "all"
+        "ALL"
       ]
     },
     "ressl": {
-      "host": "all",
-      "operator": "all",
+      "host": "ALL",
+      "operator": "ALL",
       "tag": null,
       "command": [
         "/bin/ls",
@@ -73,16 +73,16 @@
   },
   "users": {
     "wheel": {
-      "host": "all",
-      "operator": "all",
+      "host": "ALL",
+      "operator": "ALL",
       "tag": "nopasswd",
       "command": [
-        "all"
+        "ALL"
       ]
     },
     "robert_ressl": {
-      "host": "all",
-      "operator": "all",
+      "host": "ALL",
+      "operator": "ALL",
       "tag": null,
       "command": [
         "/bin/ls",
@@ -148,16 +148,16 @@
     },
     "groups": {
       "wheel_development": {
-        "host": "all",
-        "operator": "all",
+        "host": "ALL",
+        "operator": "ALL",
         "tag": "nopasswd",
         "command": [
-          "all"
+          "ALL"
         ]
       },
       "ressl_development": {
-        "host": "all",
-        "operator": "all",
+        "host": "ALL",
+        "operator": "ALL",
         "tag": null,
         "command": [
           "/bin/ls",
@@ -167,16 +167,16 @@
     },
     "users": {
       "wheel_development": {
-        "host": "all",
-        "operator": "all",
+        "host": "ALL",
+        "operator": "ALL",
         "tag": "nopasswd",
         "command": [
-          "all"
+          "ALL"
         ]
       },
       "robert_ressl_development": {
-        "host": "all",
-        "operator": "all",
+        "host": "ALL",
+        "operator": "ALL",
         "tag": null,
         "command": [
           "/bin/ls",

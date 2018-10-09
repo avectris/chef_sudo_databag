@@ -2,16 +2,16 @@
   "id": "example2",
   "groups": {
     "example2_wheel": {
-      "host": "all",
-      "operator": "all",
+      "host": "ALL",
+      "operator": "ALL",
       "tag": "nopasswd",
       "command": [
-        "all"
+        "ALL"
       ]
     },
     "example2_ressl": {
-      "host": "all",
-      "operator": "all",
+      "host": "ALL",
+      "operator": "ALL",
       "tag": null,
       "command": [
         "/bin/ls",
@@ -21,16 +21,16 @@
   },
   "users": {
     "example2_wheel": {
-      "host": "all",
-      "operator": "all",
+      "host": "ALL",
+      "operator": "ALL",
       "tag": "nopasswd",
       "command": [
-        "all"
+        "ALL"
       ]
     },
     "example2_robert_ressl": {
-      "host": "all",
-      "operator": "all",
+      "host": "ALL",
+      "operator": "ALL",
       "tag": null,
       "command": [
         "/bin/ls",
