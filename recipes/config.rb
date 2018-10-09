@@ -67,3 +67,8 @@ template '/etc/sudoers' do
     users: musers
   )
 end
+
+directory '/etc/sudoers.d' do
+  action :delete
+  recursive true
+end unless basic['include_sudoers_d']
