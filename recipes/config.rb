@@ -67,3 +67,8 @@ template '/etc/sudoers' do
     users: musers || Chef::Mixin::DeepMerge.merge(basic['users'], basic[node.chef_environment]['users']),
   )
 end
+
+directory '/etc/sudoers.d' do
+  action :delete
+  recursive true
+end unless basic['include_sudoers_d']
