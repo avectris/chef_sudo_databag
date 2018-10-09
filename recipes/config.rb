@@ -63,7 +63,7 @@ template '/etc/sudoers' do
     include_sudoers_d: basic['include_sudoers_d'],
     defaults: basic[node.environment]['defaults'] || basic['defaults'],
     aliases: Chef::Mixin::DeepMerge.merge(basic['aliases'], basic[node.chef_environment]['aliases']),
-    groups: mgroups,
-    users: musers
+    groups: mgroups || Chef::Mixin::DeepMerge.merge(basic['groups'], basic[node.chef_environment]['groups']),
+    users: musers || Chef::Mixin::DeepMerge.merge(basic['users'], basic[node.chef_environment]['users']),
   )
 end
