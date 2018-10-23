@@ -68,7 +68,15 @@ template '/etc/sudoers' do
   )
 end
 
-directory '/etc/sudoers.d' do
-  action :delete
-  recursive true
-end unless basic['include_sudoers_d']
+if basic['include_sudoers_d']
+  directory '/etc/sudoers.d' do
+    mode '0755'
+    user 'root'
+    group 'root'
+  end
+else
+  directory '/etc/sudoers.d' do
+    action :delete
+    recursive true
+  end
+end
