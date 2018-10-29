@@ -33,6 +33,10 @@ def nil.each
   ''
 end
 
+def nil.reject
+  {}
+end
+
 databag = node['sudo_databag']['databag']['name'] || 'sudo'
 items = node['sudo_databag']['databag']['items']
 basic = data_bag_item(databag, 'basic')
