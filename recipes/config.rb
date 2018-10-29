@@ -36,6 +36,8 @@ end
 databag = node['sudo_databag']['databag']['name'] || 'sudo'
 items = node['sudo_databag']['databag']['items']
 basic = data_bag_item(databag, 'basic')
+sudo_defaults = basic[node.environment]['defaults'].reject { |s| s.eql? 'user' } || basic['defaults'].reject { |s| s.eql? 'user' }
+sudo_defaults_user = Chef::Mixin::DeepMerge.merge(basic['defaults'].select { |s| s.eql? 'user' }, basic[node.environment]['defaults'].select { |s| s.eql? 'user' })
 
 user = 'root'
 group = node['platform_family'] == 'aix' ? 'system' : 'root'
@@ -61,7 +63,8 @@ template '/etc/sudoers' do
   mode '0440'
   variables(
     include_sudoers_d: basic['include_sudoers_d'],
-    defaults: basic[node.environment]['defaults'] || basic['defaults'],
+    defaults: sudo_defaults,
+    defaults_user: sudo_defaults_user,
     aliases: Chef::Mixin::DeepMerge.merge(basic['aliases'], basic[node.chef_environment]['aliases']),
     groups: mgroups || Chef::Mixin::DeepMerge.merge(basic['groups'], basic[node.chef_environment]['groups']),
     users: musers || Chef::Mixin::DeepMerge.merge(basic['users'], basic[node.chef_environment]['users'])
