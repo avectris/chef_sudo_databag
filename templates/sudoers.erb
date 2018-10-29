@@ -2,6 +2,14 @@
 Defaults <%= d.first %> <%= '= ' + ['"', d.last, '"'].join if d.last != nil %>
 <% end -%>
 
+<% @defaults_user.each do |k, v| -%>
+  <% v.each do |u, v| -%>
+    <% v.each do |d| -%>
+Defaults:<%= [u, ' ', d].join %>
+    <% end -%>
+  <% end -%>
+<% end -%>
+
 <% @aliases.each do |k, v| %>
   <% sudo_alias = [k.capitalize, "_Alias"].join %>
   <% v.each do |n| %>
