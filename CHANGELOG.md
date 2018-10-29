@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the Chef sudo_databag Cookbook.
 
+## v1.2.0 (29.10.2018)
+
+- add support for user defaults
+
 ## v1.1.3 (09.10.2018)
 
 - fix the problem if no item is define basic will not load
