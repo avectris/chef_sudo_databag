@@ -34,6 +34,10 @@ def nil.each
 end
 
 def nil.reject
+  nil
+end
+
+def nil.select
   {}
 end
 
