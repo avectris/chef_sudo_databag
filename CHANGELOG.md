@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of the Chef sudo_databag Cookbook.
 
+## v1.2.3 (29.10.2018)
+
+- fix nil handling for reject
+- add nil handling for select
+
 ## v1.2.1 (29.10.2018)
 
 - add nil handling for reject
