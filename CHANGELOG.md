@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the Chef sudo_databag Cookbook.
 
+## v1.2.4 (29.10.2018)
+
+- fix group for aix for include_sudoers_d directory
+
 ## v1.2.3 (29.10.2018)
 
 - fix nil handling for reject
