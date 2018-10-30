@@ -82,8 +82,8 @@ end
 if basic['include_sudoers_d']
   directory '/etc/sudoers.d' do
     mode '0755'
-    user 'root'
-    group 'root'
+    user user
+    group group
   end
 else
   directory '/etc/sudoers.d' do
