@@ -4,7 +4,7 @@ maintainer_email 'robert.ressl@avectris.ch'
 license 'AGPL-3.0'
 description 'Installs/Configures sudo_databag'
 long_description 'Installs/Configures sudo_databag'
-version '1.2.3'
+version '1.2.4'
 chef_version '>= 12.14' if respond_to?(:chef_version)
 
 %w(redhat centos).each do |os|
