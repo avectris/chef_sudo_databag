@@ -51,5 +51,5 @@ describe file('/etc/sudoers') do
 end
 
 describe command('visudo -c') do
-  its('stdout') { should eq "/etc/sudoers: parsed OK\n" }
+  its('stdout') { should match match(%r{\/etc\/sudoers: parsed OK}) }
 end
