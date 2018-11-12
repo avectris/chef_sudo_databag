@@ -41,7 +41,7 @@
         "/bin/cat"
       ]
     },
-    "example_robert_ressl_ls-cat": {
+    "example_robert_ressl_who": {
       "user": "example_robert_ressl",
       "host": "ALL",
       "operator": "ALL",
