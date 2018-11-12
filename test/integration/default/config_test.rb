@@ -33,6 +33,7 @@ end
 
 describe file('/etc/sudoers') do
   its('content') { should match(%r{example_robert_ressl ALL=\(ALL\) \/bin\/ls, \/bin\/cat}) }
+  its('content') { should match(%r{example_robert_ressl ALL=\(ALL\) \/usr\/bin\/who}) }
   its('content') { should match(%r{example2_robert_ressl ALL=\(ALL\) \/bin\/ls, \/bin\/cat}) }
   its('content') { should match(%r{example3_development_robert_ressl ALL=\(ALL\) \/bin\/ls, \/bin\/cat}) }
   its('content') { should match(/example_wheel ALL=\(ALL\) NOPASSWD: ALL/) }
