@@ -1,7 +1,8 @@
 {
   "id": "example",
   "groups": {
-    "example_wheel": {
+    "example_wheel_all": {
+      "group": "example_wheel",
       "host": "ALL",
       "operator": "ALL",
       "tag": "nopasswd",
@@ -9,7 +10,8 @@
         "ALL"
       ]
     },
-    "example_ressl": {
+    "example_ressl_ls-cat": {
+      "group": "example_ressl",
       "host": "ALL",
       "operator": "ALL",
       "tag": null,
@@ -20,7 +22,8 @@
     }
   },
   "users": {
-    "example_wheel": {
+    "example_wheel_all": {
+      "user": "example_wheel",
       "host": "ALL",
       "operator": "ALL",
       "tag": "nopasswd",
@@ -28,7 +31,8 @@
         "ALL"
       ]
     },
-    "example_robert_ressl": {
+    "example_robert_ressl_ls-cat": {
+      "user": "example_robert_ressl",
       "host": "ALL",
       "operator": "ALL",
       "tag": null,
@@ -36,6 +40,15 @@
         "/bin/ls",
         "/bin/cat"
       ]
+    },
+    "example_robert_ressl_ls-cat": {
+      "user": "example_robert_ressl",
+      "host": "ALL",
+      "operator": "ALL",
+      "tag": null,
+      "command": [
+        "/usr/bin/who"
+      ]
     }
-  }
+   }
 }

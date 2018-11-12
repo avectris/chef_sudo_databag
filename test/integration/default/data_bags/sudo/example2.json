@@ -1,7 +1,8 @@
 {
   "id": "example2",
   "groups": {
-    "example2_wheel": {
+    "example2_wheel_all": {
+      "group": "example2_wheel",
       "host": "ALL",
       "operator": "ALL",
       "tag": "nopasswd",
@@ -9,7 +10,8 @@
         "ALL"
       ]
     },
-    "example2_ressl": {
+    "example2_ressl_ls-cat": {
+      "group": "example2_ressl",
       "host": "ALL",
       "operator": "ALL",
       "tag": null,
@@ -20,7 +22,8 @@
     }
   },
   "users": {
-    "example2_wheel": {
+    "example2_wheel_all": {
+      "user": "example2_wheel",
       "host": "ALL",
       "operator": "ALL",
       "tag": "nopasswd",
@@ -28,7 +31,8 @@
         "ALL"
       ]
     },
-    "example2_robert_ressl": {
+    "example2_robert_ressl_ls-cat": {
+      "user": "example2_robert_ressl",
       "host": "ALL",
       "operator": "ALL",
       "tag": null,

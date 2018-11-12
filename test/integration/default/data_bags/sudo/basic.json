@@ -59,7 +59,8 @@
     }
   },
   "groups": {
-    "wheel": {
+    "wheel_all": {
+      "group": "wheel",
       "host": "ALL",
       "operator": "ALL",
       "tag": "nopasswd",
@@ -67,7 +68,8 @@
         "ALL"
       ]
     },
-    "ressl": {
+    "ressl_ls-cat": {
+      "group": "ressl",
       "host": "ALL",
       "operator": "ALL",
       "tag": null,
@@ -78,7 +80,8 @@
     }
   },
   "users": {
-    "wheel": {
+    "wheel_all": {
+      "user": "wheel",
       "host": "ALL",
       "operator": "ALL",
       "tag": "nopasswd",
@@ -86,7 +89,8 @@
         "ALL"
       ]
     },
-    "robert_ressl": {
+    "robert_ressl_ls-cat": {
+      "user": "robert_ressl",
       "host": "ALL",
       "operator": "ALL",
       "tag": null,
@@ -159,7 +163,8 @@
       }
     },
     "groups": {
-      "wheel_development": {
+      "wheel_development_all": {
+        "group": "wheel_development",
         "host": "ALL",
         "operator": "ALL",
         "tag": "nopasswd",
@@ -167,7 +172,8 @@
           "ALL"
         ]
       },
-      "ressl_development": {
+      "ressl_development_ls-cat": {
+        "group": "ressl_development",
         "host": "ALL",
         "operator": "ALL",
         "tag": null,
@@ -178,7 +184,8 @@
       }
     },
     "users": {
-      "wheel_development": {
+      "wheel_development_all": {
+        "user": "wheel_development",
         "host": "ALL",
         "operator": "ALL",
         "tag": "nopasswd",
@@ -186,7 +193,8 @@
           "ALL"
         ]
       },
-      "robert_ressl_development": {
+      "robert_ressl_development_ls-cat": {
+        "user": "robert_ressl_development",
         "host": "ALL",
         "operator": "ALL",
         "tag": null,
