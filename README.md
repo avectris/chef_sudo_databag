@@ -47,7 +47,13 @@ There is a minimum one data bag item. The name of this data bag item must be bas
   "defaults": {
     "env_reset": null,
     "secure_path": "/sbin:/bin:/usr/sbin:/usr/bin",
-    "env_keep": "COLORS DISPLAY HOSTNAME HISTSIZE KDEDIR LS_COLORS MAIL PS1 PS2 QTDIR USERNAME LANG LC_ADDRESS LC_CTYPE LC_COLLATE LC_IDENTIFICATION LC_MEASUREMENT LC_MESSAGES LC_MONETARY LC_NAME LC_NUMERIC LC_PAPER LC_TELEPHONE LC_TIME LC_ALL LANGUAGE LINGUAS _XKB_CHARSET XAUTHORITY"
+    "env_keep": "COLORS DISPLAY HOSTNAME HISTSIZE KDEDIR LS_COLORS MAIL PS1 PS2 QTDIR USERNAME LANG LC_ADDRESS LC_CTYPE LC_COLLATE LC_IDENTIFICATION LC_MEASUREMENT LC_MESSAGES LC_MONETARY LC_NAME LC_NUMERIC LC_PAPER LC_TELEPHONE LC_TIME LC_ALL LANGUAGE LINGUAS _XKB_CHARSET XAUTHORITY",
+    "user": {
+      "ressl_robert": [
+        "!requiretty",
+        "!env_reset"
+      ]
+    }
   },
   "aliases": {
     "cmnd": {
@@ -96,17 +102,19 @@ There is a minimum one data bag item. The name of this data bag item must be bas
     }
   },
   "groups": {
-    "wheel": {
-      "host": "all",
-      "operator": "all",
+    "wheel_all": {
+      "group": "wheel",
+      "host": "ALL",
+      "operator": "ALL",
       "tag": "nopasswd",
       "command": [
-        "all"
+        "ALL"
       ]
     },
-    "ressl": {
-      "host": "all",
-      "operator": "all",
+    "ressl_ls-cat": {
+      "group": "ressl",
+      "host": "ALL",
+      "operator": "ALL",
       "tag": null,
       "command": [
         "/bin/ls",
@@ -115,17 +123,19 @@ There is a minimum one data bag item. The name of this data bag item must be bas
     }
   },
   "users": {
-    "wheel": {
-      "host": "all",
-      "operator": "all",
+    "wheel_all": {
+      "user": "wheel",
+      "host": "ALL",
+      "operator": "ALL",
       "tag": "nopasswd",
       "command": [
-        "all"
+        "ALL"
       ]
     },
-    "robert_ressl": {
-      "host": "all",
-      "operator": "all",
+    "robert_ressl_ls-cat": {
+      "user": "robert_ressl",
+      "host": "ALL",
+      "operator": "ALL",
       "tag": null,
       "command": [
         "/bin/ls",
@@ -141,7 +151,13 @@ There is a minimum one data bag item. The name of this data bag item must be bas
     "defaults": {
       "env_reset": null,
       "secure_path": "/sbin:/bin:/usr/sbin:/usr/bin",
-      "env_keep": "COLORS DISPLAY HOSTNAME HISTSIZE KDEDIR LS_COLORS MAIL PS1 PS2 QTDIR USERNAME LANG LC_ADDRESS LC_CTYPE LC_COLLATE LC_IDENTIFICATION LC_MEASUREMENT LC_MESSAGES LC_MONETARY LC_NAME LC_NUMERIC LC_PAPER LC_TELEPHONE LC_TIME LC_ALL LANGUAGE LINGUAS _XKB_CHARSET XAUTHORITY"
+      "env_keep": "COLORS DISPLAY HOSTNAME HISTSIZE KDEDIR LS_COLORS MAIL PS1 PS2 QTDIR USERNAME LANG LC_ADDRESS LC_CTYPE LC_COLLATE LC_IDENTIFICATION LC_MEASUREMENT LC_MESSAGES LC_MONETARY LC_NAME LC_NUMERIC LC_PAPER LC_TELEPHONE LC_TIME LC_ALL LANGUAGE LINGUAS _XKB_CHARSET XAUTHORITY",
+      "user": {
+        "robert_ressl": [
+          "!requiretty",
+          "!env_reset"
+        ]
+      }
     },
     "aliases": {
       "cmnd": {
@@ -190,17 +206,19 @@ There is a minimum one data bag item. The name of this data bag item must be bas
       }
     },
     "groups": {
-      "wheel_development": {
-        "host": "all",
-        "operator": "all",
+      "wheel_development_all": {
+        "group": "wheel_development",
+        "host": "ALL",
+        "operator": "ALL",
         "tag": "nopasswd",
         "command": [
-          "all"
+          "ALL"
         ]
       },
-      "ressl_development": {
-        "host": "all",
-        "operator": "all",
+      "ressl_development_ls-cat": {
+        "group": "ressl_development",
+        "host": "ALL",
+        "operator": "ALL",
         "tag": null,
         "command": [
           "/bin/ls",
@@ -209,17 +227,19 @@ There is a minimum one data bag item. The name of this data bag item must be bas
       }
     },
     "users": {
-      "wheel_development": {
-        "host": "all",
-        "operator": "all",
+      "wheel_development_all": {
+        "user": "wheel_development",
+        "host": "ALL",
+        "operator": "ALL",
         "tag": "nopasswd",
         "command": [
-          "all"
+          "ALL"
         ]
       },
-      "robert_ressl_development": {
-        "host": "all",
-        "operator": "all",
+      "robert_ressl_development_ls-cat": {
+        "user": "robert_ressl_development",
+        "host": "ALL",
+        "operator": "ALL",
         "tag": null,
         "command": [
           "/bin/ls",
@@ -243,17 +263,19 @@ You can define specific items for a group of nodes or only one.
 {
   "id": "example",
   "groups": {
-    "example_wheel": {
-      "host": "all",
-      "operator": "all",
+    "example_wheel_all": {
+      "group": "example_wheel",
+      "host": "ALL",
+      "operator": "ALL",
       "tag": "nopasswd",
       "command": [
-        "all"
+        "ALL"
       ]
     },
-    "example_ressl": {
-      "host": "all",
-      "operator": "all",
+    "example_ressl_ls-cat": {
+      "group": "example_ressl",
+      "host": "ALL",
+      "operator": "ALL",
       "tag": null,
       "command": [
         "/bin/ls",
@@ -262,21 +284,32 @@ You can define specific items for a group of nodes or only one.
     }
   },
   "users": {
-    "example_wheel": {
-      "host": "all",
-      "operator": "all",
+    "example_wheel_all": {
+      "user": "example_wheel",
+      "host": "ALL",
+      "operator": "ALL",
       "tag": "nopasswd",
       "command": [
-        "all"
+        "ALL"
       ]
     },
-    "example_robert_ressl": {
-      "host": "all",
-      "operator": "all",
+    "example_robert_ressl_ls-cat": {
+      "user": "example_robert_ressl",
+      "host": "ALL",
+      "operator": "ALL",
       "tag": null,
       "command": [
         "/bin/ls",
         "/bin/cat"
+      ]
+    },
+    "example_robert_ressl_who": {
+      "user": "example_robert_ressl",
+      "host": "ALL",
+      "operator": "ALL",
+      "tag": null,
+      "command": [
+        "/usr/bin/who"
       ]
     }
   }
@@ -294,17 +327,19 @@ You can define specific items for a group of nodes or only one.
   "integration": {},
   "development": {
     "groups": {
-      "example3_development_wheel": {
-        "host": "all",
-        "operator": "all",
+      "example3_development_wheel_all": {
+        "group": "example3_development_wheel",
+        "host": "ALL",
+        "operator": "ALL",
         "tag": "nopasswd",
         "command": [
-          "all"
+          "ALL"
         ]
       },
-      "example3_development_ressl": {
-        "host": "all",
-        "operator": "all",
+      "example3_development_ressl_ls-cat": {
+        "group": "example3_development_ressl",
+        "host": "ALL",
+        "operator": "ALL",
         "tag": null,
         "command": [
           "/bin/ls",
@@ -313,17 +348,19 @@ You can define specific items for a group of nodes or only one.
       }
     },
     "users": {
-      "example3_development_wheel": {
-        "host": "all",
-        "operator": "all",
+      "example3_development_wheel_all": {
+        "user": "example3_development_wheel",
+        "host": "ALL",
+        "operator": "ALL",
         "tag": "nopasswd",
         "command": [
-          "all"
+          "ALL"
         ]
       },
-      "example3_development_robert_ressl": {
-        "host": "all",
-        "operator": "all",
+      "example3_development_robert_ressl_ls-cat": {
+        "user": "example3_development_robert_ressl",
+        "host": "ALL",
+        "operator": "ALL",
         "tag": null,
         "command": [
           "/bin/ls",
