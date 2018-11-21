@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the Chef sudo_databag Cookbook.
 
+## v1.3.1 (21.11.2018)
+
+- fix bug in sudo_defaults; only load data in environment
+
 ## v1.3.0 (12.11.2018)
 
 -  support for multiple commands setting per user
